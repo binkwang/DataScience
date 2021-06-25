@@ -36,16 +36,16 @@ def run_it():
 		# based on the data type of the input.
 		# In this case, you’re passing in a dataframe 
 		# and it’s rendering as an interactive table.
-		st.write(data) 
+		st.write(data)
 
 	# Or you can use a specialized command like st.dataframe instead
 	# to render the dataframe.
 	# st.dataframe(data)
 
 
-	"""
 	## Number of pickups by hour
-	"""
+
+	st.subheader("Number of pickups by hour")
 
 	hist_values = np.histogram(
 	    data[DATE_COLUMN].dt.hour, 
@@ -54,19 +54,18 @@ def run_it():
 	st.bar_chart(hist_values)
 
 
-	"""
 	## Map of all pickups
-	"""
+
+	st.subheader("Map of all pickups")
+
 	st.map(data)
 
-	"""
 	## Map of pickups in a selected time
-	"""
+	st.subheader("Map of pickups in a selected time")
 
 	hour_to_filter = st.slider('hour', 0, 23, 17)  # min: 0h, max: 23h, default: 17h
 	filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 	st.subheader(f'Map of all pickups at {hour_to_filter}:00')
 	# st.subheader('Map of all pickups at %s:00' % hour_to_filter)
 	st.map(filtered_data)
-
 
