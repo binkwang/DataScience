@@ -130,3 +130,6 @@ dmypy.json
 
 # OS generated files
 .DS_Store
+
+# Others
+temp/
