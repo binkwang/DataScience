@@ -41,13 +41,13 @@ def show_data():
 
 #########
 
-def plot_map_1(img_path=TEMP_IMG_PATH):
+def plot_map_1():
     data = fetch_and_load_data()
     data.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4)
-    # plt.show() // error: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-    img = os.path.join(img_path, "01.png")
-    plt.savefig(img)
-    st.image(img, width=None)
+
+    # error: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    # plt.show() 
+    show_image("01.png")
 
 #########
 
@@ -59,9 +59,7 @@ def plot_map_2(img_path=TEMP_IMG_PATH):
         colorbar=True, alpha=0.4, figsize=(10,7),
     )
     plt.legend()
-    img = os.path.join(img_path, "02.png")
-    plt.savefig(img)
-    st.image(img, width=None)
+    show_image("02.png")
 
 #########
 
@@ -82,12 +80,9 @@ def plot_map_3(img_path=TEMP_IMG_PATH):
     cbar = plt.colorbar()
     cbar.ax.set_yticklabels(["$%dk"%(round(v/1000)) for v in tick_values], fontsize=14)
     cbar.set_label('Median House Value', fontsize=16)
-
     plt.legend(fontsize=16)
-    # plt.show()
-    img = os.path.join(img_path, "03.png")
-    plt.savefig(img)
-    st.image(img, width=None)
+
+    show_image("03.png")
 
 #########
 
@@ -111,21 +106,23 @@ def plot_map_4(img_path=TEMP_IMG_PATH):
     cbar.solids.set_cmap("jet")
     cbar.set_label('Churn Probability', fontsize=16, alpha=1, 
                 rotation=270, labelpad=20)
-
     plt.legend(fontsize=16)
-    # plt.show()
-    img = os.path.join(img_path, "04.png")
+
+    show_image("04.png")
+
+#########
+
+def show_image(name, img_path=TEMP_IMG_PATH):
+    if not os.path.exists(img_path):
+        os.makedirs(img_path)
+    img = os.path.join(img_path, name)
     plt.savefig(img)
     st.image(img, width=None)
-
-def create_temp_path():
-    if not os.path.exists(TEMP_IMG_PATH):
-        os.makedirs(TEMP_IMG_PATH)
+    # st.pyplot()
 
 #########
 
 def run_it():
-    create_temp_path()
     show_data()
     plot_map_1()
     plot_map_2()
