@@ -20,7 +20,12 @@ TEMP_IMG_PATH = "temp/image"
 # https://website2.readthedocs.io/beginning/04_matplotlib.html
 # https://juejin.cn/post/6844904143568519176
 # http://jonathansoma.com/lede/algorithms-2017/classes/fuzziness-matplotlib/how-pandas-uses-matplotlib-plus-figures-axes-and-subplots/
+#
 # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.scatter.html
+#
+# https://matplotlib.org/stable/tutorials/colors/colormaps.html
+# https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py
 #########
 
 def fetch_housing_data(housing_url=HOUSING_URL, housing_path=TEMP_HOUSING_DATA_PATH):
@@ -48,7 +53,6 @@ def show_data(dataframe):
 # Pandas.DataFrame 
 # plot to 
 # matplotlib.pyplot ax
-# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html
 #########
 def show_saved_figure(dataframe):
     fig, ax = plt.subplots()
@@ -90,18 +94,26 @@ def plot_map_1(dataframe):
 def plot_map_2(dataframe):
     fig, ax = plt.subplots()
     dataframe.plot(
+        # pandas.DataFrame.plot arguments
         kind="scatter", 
-        x="longitude", 
-        y="latitude",
-        s=dataframe['population']/100, 
-        label="population",
-        c="median_house_value", 
-        cmap=plt.get_cmap("jet"),
-        colorbar=True, 
-        alpha=0.4, 
+        ax=ax,
+        x="longitude", # The column name to be used as horizontal coordinates for each point.
+        y="latitude", # The column name to be used as vertical coordinates for each point.
+        title="test title", # Or ax.set_title("test")
         figsize=(8,6),
-        ax=ax)
-    ax.set_title('test title')
+        legend=True, # If True, Place legend
+        colorbar=True,  # If True, plot colorbar
+        backend="matplotlib", # Specify plotting backend, "matplotlib" is the default value
+
+        # pandas.DataFrame.plot.scatter arguments
+        s=dataframe['population']/100, # The size of each point
+        c="median_house_value", # The color of each point
+
+        # Matplotlib arguments
+        label="population", # Matplotlib property.
+        cmap=plt.get_cmap("jet"), # Matplotlib property. Set color map.
+        alpha=0.4) # Matplotlib property. Example, 'axes.plot(x,x**2, color='purple', alpha=0.1)'
+    ax.set_title("test")
     ax.legend(fontsize=10)
     st.pyplot(fig)
 
