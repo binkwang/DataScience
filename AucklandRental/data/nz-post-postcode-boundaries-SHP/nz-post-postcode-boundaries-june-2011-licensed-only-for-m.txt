@@ -1,0 +1,46 @@
+========================================================================
+ NZ Post Postcode Boundaries (June 2011; licensed only for Mix & Mash 2011)
+------------------------------------------------------------------------
+ https://koordinates.com/layer/3903-nz-post-postcode-boundaries-june-2011-licensed-only-for-mix-mash-2011/
+========================================================================
+From: New Zealand Post
+
+Description:
+  The Postcode Network File (PNF) is supplied on the following terms:
+  
+  - The PNF is only to be used in the development of an entry into the 2011 Mix
+  and Mash competition;
+  - For the avoidance of doubt the PNF supplied is not to be used to develop or
+  deliver commercial products, services of solutions, i.e. those supplied to an
+  end-user for a fee or commercial consideration;
+  - New Zealand Post does not warrant or guarantee that the PNF is complete,
+  current, accurate or free from viruses or other 'malware';
+  - The PNF is supplied as a one-off, "as-is" file, and there is no maintenance,
+  updates or user support supplied other than the data and documentation delivered
+  as part of the PNF.
+  
+  The data is also available to you on a commercial basis, please [visit the
+  website to learn
+  more](http://www.nzpost.co.nz/business/direct-marketing/direct-marketing-products-services/quality-addressing/postcode-network-file).
+
+Region: New Zealand
+
+Category: Boundaries & Administration
+
+Projection: NZGD2000 / New Zealand Transverse Mercator 2000
+
+------------------------------------------------------------------------
+ Processing steps applied by Koordinates
+------------------------------------------------------------------------
+
+- imported to Koordinates in Shapefile format on 26 Aug 2011
+- 11 invalid geometries fixed at import time 
+    (see https://koordinates.com/layer/3903-nz-post-postcode-boundaries-june-2011-licensed-only-for-mix-mash-2011/history/)
+- converted by Koordinates to Shapefile on 17 Jul 2021 (reference #2246335)
+
+====================
+No license specified
+====================
+
+No license was specified for this layer. This could mean default rights under copyright law for your legal jurisdiction may apply. Please check with Koordinates if you're unsure of your right to access and use this layer.
+
